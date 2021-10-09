@@ -93,8 +93,7 @@ Pipelines are run on AWS Batch using r5-2xlarge instances by default. If your pi
     ```
     process.container = 'zymoresearch/aladdin-rnaseq:1.0.0'
     ```
-Or, you can define container(s) for specific processes by using the [`container` directive](https://www.nextflow.io/docs/latest/process.html#container). We have tested and recommend using public images in [docker hub](https://hub.docker.com/). If you must using private Docker images, please work with us to set them up.
-
+    Or, you can define container(s) for specific processes by using the [`container` directive](https://www.nextflow.io/docs/latest/process.html#container). We have tested and recommend using public images in [docker hub](https://hub.docker.com/). If you must using private Docker images, please work with us to set them up.
 3. not exceed maximum available resources (8 cpus and 64G memory by default) when requesting compute resources. If one of your processes request more cpu/memory than available in the instance type, the process and the pipeline will stuck. Because it is common to request compute resources dynamically in Nextflow pipelines, such as in [this config file](https://github.com/Zymo-Research/aladdin-rnaseq/blob/main/conf/base.config), it is best practice to set max cpu/memory and use a function to make sure requested cpu/memory do not exceed those max values. You can refer to [this config file](https://github.com/Zymo-Research/aladdin-rnaseq/blob/main/nextflow.config) on how to do that.
 
 ### Input requirements
