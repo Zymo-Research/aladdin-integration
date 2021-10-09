@@ -84,16 +84,17 @@ We recommend [nf-core](https://nf-co.re/) pipelines and think you can learn a lo
 #### AWS Batch requirements
 Pipelines are run on AWS Batch using r5-2xlarge instances by default. If your pipeline requires more resources than that, we can make it work, but you must inform us. Translating these into Nextflow, your pipeline must:
 1. have a `awsbatch` profile. You can include [this config file](https://github.com/Zymo-Research/aladdin-rnaseq/blob/main/conf/awsbatch.config) in your repo, and import this config file in your `nextflow.config` file. Assuming your `awsbatch` config file is stored at `conf/awsbatch.config`, add the following code in your `nextflow.config`.
-```
-profiles {
-    awsbatch { includeConfig 'conf/awsbatch.config' }
-}
-```
+    ```
+    profiles {
+        awsbatch { includeConfig 'conf/awsbatch.config' }
+    }
+    ```
 2. have Docker container(s) for all your processes. For example, you can use a single container for all your processes by adding the following code in your `nextflow.config`.
-```
-process.container = 'zymoresearch/aladdin-rnaseq:1.0.0'
-```
+    ```
+    process.container = 'zymoresearch/aladdin-rnaseq:1.0.0'
+    ```
 Or, you can define container(s) for specific processes by using the [`container` directive](https://www.nextflow.io/docs/latest/process.html#container). We have tested and recommend using public images in [docker hub](https://hub.docker.com/). If you must using private Docker images, please work with us to set them up.
+
 3. not exceed maximum available resources (8 cpus and 64G memory by default) when requesting compute resources. If one of your processes request more cpu/memory than available in the instance type, the process and the pipeline will stuck. Because it is common to request compute resources dynamically in Nextflow pipelines, such as in [this config file](https://github.com/Zymo-Research/aladdin-rnaseq/blob/main/conf/base.config), it is best practice to set max cpu/memory and use a function to make sure requested cpu/memory do not exceed those max values. You can refer to [this config file](https://github.com/Zymo-Research/aladdin-rnaseq/blob/main/nextflow.config) on how to do that.
 
 ### Input requirements
