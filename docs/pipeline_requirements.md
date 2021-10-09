@@ -117,8 +117,8 @@ Experiment,Sample3,s3://mybucket/that_is_s3_R1.fastq.gz,
 Experiment,Sample4,s3://mybucket/that_be_s4_R1.fastq.gz,
 ```
 The `group` column contains the group labels the users chose, or empty strings when users elect to skip group comparisons. The `sample` column contains sample labels the users chose. The `read_1` and `read_2` columns contain S3 locations of the FASTQ files, or empty strings for `read_2` if applicable.<br>
-> Additional columns may be supported in a future version.
 This file is then fed to the pipeline with `--design <path to design CSV file>`. Your pipeline should have code to parse this file and create channels for FASTQ files. You can find an example of such code [here](../examples/parse_design.nf).
+> Additional columns may be supported in a future version.
 
 ### Output requirements
 As you can see [above](#view-results), Aladdin generally has 5 different sections when displaying the outputs of an aanlysis, with 2 of them being mandatory. Therefore, all pipelines on Aladdin must produce a **single** report file for each analysis. We recommend a self-inclusive HTML file, meaning all plots are encoded in the HTML file itself, PDF files should also work as well. Please note that HTML files that rely on other files will not work. If you would like to generate a report for each sample, they could be displayed in section 4 of the Results page, but a report file for the analysis is still required. Your pipeline must report the types and locations of output files via a JSON output manifest file to Aladdin. Aladdin expects such a file at `${params.outdir}/download_data/files_to_download.json`. You can find an example of the manifest file [here](../examples/files_to_download.json).<br>
