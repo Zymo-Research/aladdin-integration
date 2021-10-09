@@ -1,0 +1,122 @@
+{
+    "Control_vs_Zika_DESeq_results.xlsx": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/DESeq2/Control_vs_Zika_DESeq_results.xlsx",
+        "md5sum": null,
+        "file_type": "DEG analysis results",
+        "scope": "comparisons",
+        "comparison": "Control_vs_Zika"
+    },
+    "DESeq2_sample_MDS_plot.jpg": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/DESeq2/DESeq2_sample_MDS_plot.jpg",
+        "md5sum": null,
+        "file_type": "MDS plot of samples",
+        "scope": "all_samples"
+    },
+    "Ctl_SE_2.markDups.bam": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MarkDuplicates/Ctl_SE_2.markDups.bam",
+        "md5sum": "5ce57fa6cd6faeb95618825ead2713f4",
+        "file_type": "Alignment BAM file",
+        "scope": "samples",
+        "sample": "Ctl_SE_2"
+    },
+    "Zika_PE_2.markDups.bam": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MarkDuplicates/Zika_PE_2.markDups.bam",
+        "md5sum": "3edbfe279b1fd0f3191e92753c52c92c",
+        "file_type": "Alignment BAM file",
+        "scope": "samples",
+        "sample": "Zika_PE_2"
+    },
+    "Ctl_PE_1.markDups.bam": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MarkDuplicates/Ctl_PE_1.markDups.bam",
+        "md5sum": "1d0fc1ad6c8ebfd00b164433fb631e08",
+        "file_type": "Alignment BAM file",
+        "scope": "samples",
+        "sample": "Ctl_PE_1"
+    },
+    "normalized_counts.xlsx": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/DESeq2/normalized_counts.xlsx",
+        "md5sum": null,
+        "file_type": "Normalized read counts of genes",
+        "scope": "all_samples"
+    },
+    "Zika_PE_1.markDups.bam": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MarkDuplicates/Zika_PE_1.markDups.bam",
+        "md5sum": "4b751ecaee60335c87e9202b61f16453",
+        "file_type": "Alignment BAM file",
+        "scope": "samples",
+        "sample": "Zika_PE_1"
+    },
+    "DESeq2_top_gene_heatmap.jpg": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/DESeq2/DESeq2_top_gene_heatmap.jpg",
+        "md5sum": null,
+        "file_type": "Heatmap of expression of top genes",
+        "scope": "all_samples"
+    },
+    "Ctl_SE_1.markDups.bam": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MarkDuplicates/Ctl_SE_1.markDups.bam",
+        "md5sum": "8d03fb88b9afa02315b48b15fd962839",
+        "file_type": "Alignment BAM file",
+        "scope": "samples",
+        "sample": "Ctl_SE_1"
+    },
+    "Control_vs_Zika_DESeq_MA_plot.jpg": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/DESeq2/Control_vs_Zika_DESeq_MA_plot.jpg",
+        "md5sum": null,
+        "file_type": "MA plot of genes",
+        "scope": "comparisons",
+        "comparison": "Control_vs_Zika"
+    },
+    "Ctl_PE_2.markDups.bam": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MarkDuplicates/Ctl_PE_2.markDups.bam",
+        "md5sum": "a3aff9c1245bc15d4b8efc424c9a4b99",
+        "file_type": "Alignment BAM file",
+        "scope": "samples",
+        "sample": "Ctl_PE_2"
+    },
+    "DESeq2_sample_similarity_matrix.jpg": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/DESeq2/DESeq2_sample_similarity_matrix.jpg",
+        "md5sum": null,
+        "file_type": "Similarity matrix of samples",
+        "scope": "all_samples"
+    },
+    "Control_vs_Zika_DESeq_scatterplot.jpg": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/DESeq2/Control_vs_Zika_DESeq_scatterplot.jpg",
+        "md5sum": null,
+        "file_type": "Scatter plot of genes",
+        "scope": "comparisons",
+        "comparison": "Control_vs_Zika"
+    },
+    "merged_gene_counts.txt": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/featureCounts/merged_gene_counts.txt",
+        "md5sum": null,
+        "file_type": "Raw read counts of genes",
+        "scope": "all_samples"
+    },
+    "Zika_SE_2.markDups.bam": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MarkDuplicates/Zika_SE_2.markDups.bam",
+        "md5sum": "6116232b653a38a2dc7bc599544f70b1",
+        "file_type": "Alignment BAM file",
+        "scope": "samples",
+        "sample": "Zika_SE_2"
+    },
+    "Zika_SE_1.markDups.bam": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MarkDuplicates/Zika_SE_1.markDups.bam",
+        "md5sum": "374a5f594ef102427c246e70ea871c28",
+        "file_type": "Alignment BAM file",
+        "scope": "samples",
+        "sample": "Zika_SE_1"
+    },
+    "Control_vs_Zika_gProfiler_results.xlsx": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/gProfiler/Control_vs_Zika_gProfiler_results.xlsx",
+        "md5sum": null,
+        "file_type": "Pathway enrichment results",
+        "scope": "comparisons",
+        "comparison": "Control_vs_Zika"
+    },
+    "test_run_multiqc_report.html": {
+        "path": "s3://aladdin-output-bucket/RNAseq_test_output/MultiQC/test_run_multiqc_report.html",
+        "md5sum": null,
+        "file_type": "Report",
+        "scope": "report"
+    }
+}

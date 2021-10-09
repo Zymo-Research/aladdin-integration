@@ -1,2 +1,4 @@
 # aladdin-integration
-Documentation and tools to develop pipelines that can be run on Aladdin
+This repo contains documentations and tools that help the development of Nextflow pipelines to run on Aladdin.
+
+* [Pipeline requirements](docs/pipeline_requirements.md)
