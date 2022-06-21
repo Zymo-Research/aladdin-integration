@@ -1,5 +1,5 @@
 # Pipeline requirements
-This document details the requirements of Nextflow pipelines in order for it to run Aladdin platform.
+This document details the requirements of Nextflow pipelines in order for it to run Aladdin Bioinformatics platform.
 
 ## Table of contents
 * [Table of contents](#table-of-contents)
@@ -19,41 +19,41 @@ This document details the requirements of Nextflow pipelines in order for it to 
   * [Output requirements](#output-requirements)
 
 ## Overview of Aladdin platform
-We will go over the main functionality and pages of Aladdin platform to familiarize you with its designs so that you have a context on why some of the pipeline requirements exist and how some of the required components of the pipeline interacts with user interface (UI). While there are other functionalities on Aladdin platform such as user management, project management and educational contents, the main bioinformatics functionalities are carried out in 4 steps and 4 pages: upload data, choose sample type, start new analysis, and view results.
+We will go over the main functionality and pages of Aladdin Bioinformatics platform to familiarize you with its designs so that you have a context on why some of the pipeline requirements exist and how some of the required components of the pipeline interacts with user interface (UI). While there are other functionalities on Aladdin platform such as user management, project management and educational contents, the main bioinformatics functionalities are carried out in 4 steps and 4 pages: upload data, choose sample type, start new analysis, and view results.
 
 ### Upload FASTQ
 Users always begin a project on Aladdin by uploading their FASTQ files on a page like this. 
 
 ![Upload data page screenshot](../images/upload_data.png)
 
-The section on the left side is where users can upload their FASTQ files and monitor upload progress. Only `.fastq.gz` and `fq.gz` files are accepted. The section on the right side displays uploaded and unpaired FASTQ files. Users can pair read 1 and read 2 files, and change short names of FASTQ file pairs in this section. Automatic pairing of FASTQ files is carried out for recognized file naming patterns, namely [Illumina FASTQ naming convention](https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/NamingConvention_FASTQ-files-swBS.htm) or the simple pattern of "name_R1.fastq.gz; name_R2.fastq.gz". Users can drag and drop R1/R2 files to correct file pairings. After uploading and pairing FASTQ files, users click "Next" and will be asked to confirm the FASTQ file pairings.
+The section on the left side is where users can upload their FASTQ files from their computer and monitor upload progress. Only `.fastq.gz` and `fq.gz` files are accepted. Alternatively, the user could choose to upload their FASTQ files from the internet by copy and pasting URLs to the FASTQ files. The section on the right side displays uploaded and unpaired FASTQ files. Users can pair read 1 and read 2 files, and change short names of FASTQ file pairs in this section. Automatic pairing of FASTQ files is carried out for recognized file naming patterns, namely [Illumina FASTQ naming convention](https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/NamingConvention_FASTQ-files-swBS.htm) or the simple pattern of "name_R1.fastq.gz; name_R2.fastq.gz". Users can drag and drop R1/R2 files to correct file pairings. After uploading and pairing FASTQ files, users click "Confirm Pairing" and will be asked to confirm the FASTQ file pairings.
 
 ### Choose sample type
-On the second page, users will be asked to choose one of recognized sample types. The purpose of sample types are to check compatibility with bioinformatic pipelines. Most bioinformatics pipelines can only be used on data from certain library types. For example, it makes no sense analyzing RNAseq data with a methylseq pipeline. Users can also change sample names or delete samples on this page. Users cannot advance to other pages until all samples have their types chosen.
+On the second page, users will be asked to choose one of recognized library types for each sample. The purpose of sample library types are to check compatibility with bioinformatic pipelines. Most bioinformatics pipelines can only be used on data from certain library types. For example, it makes no sense analyzing RNAseq data with a methylseq pipeline. Users can also change sample names or delete samples on this page. Users could also import demo samples that are provided by Aladdin platform for comparison or testing purposes.
 
 ![Choose sample type page screenshot](../images/choose_sample_type.png)
 
 ### Star new analysis
-On the third page, users can start a new bioinformatics analysis. The section on the left is used to define metadata of this analysis such as name and description, choose a pipeline, and define input parameters for the selected pipeline in this analysis. The section on the right is used to select samples to be included in this analysis.
+On the third page, users can start a new bioinformatic analysis. The section on the left is used to define metadata of this analysis such as name and description, choose a pipeline, and define input parameters for the selected pipeline in this analysis. The section on the right is used to select samples to be included in this analysis and request group comparisons.
 
 ![Start new analysis page screenshot](../images/start_new_analysis.png)
 
 #### Choose input parameters
-Once users choose a pipeline, various form items will displayed on the UI for the user to define input parameters. Depends on the types of the input parameter, an appropriate form item such as drop-down selection, textbox, checkbox will be displayed. There are two groups of parameters: required parameters and advanced parameters. Required parameters are always displayed and a valid choice/value in each of them is required from the users. Advanced parameters are hidden unless users click to expose them. Advanced parameters must have a default value. Parameters have a question mark next to them to display a help text when moused over. The UI will also carry out validation of input parameters.
+Once users choose a pipeline and the version of the pipeline, various form items will displayed on the UI for the users to define input parameters. Different pipelines and versions have different input parameters. Depends on the types of the input parameter, an appropriate form item such as drop-down selection, textbox, checkbox will be displayed. There are two groups of parameters: required parameters and advanced parameters. Required parameters are always displayed and a valid choice/value in each of them is required from the users. Advanced parameters are hidden unless users click to expose them. Advanced parameters must have a default value. Parameters have a question mark next to them to display a help text when moused over. The UI will also carry out validation of input parameters.
 
 ![Analysis input parameters screenshot](../images/analysis_input_parameters.png)
 
 #### Choose samples and group comparisons
-After choosing pipeline and its parameters, users can choose samples to add to this analysis. Only samples whose types are compatible with the selected pipeline are displayed. Users can also add group labels to enable comparisons between groups, for example, disease vs. control. We realize that group comparisons may not be applicable to every analysis. In the next update, we will add a checkbox to skip group comparisons.
+After choosing pipeline and its parameters, users can choose samples to add to this analysis. Only samples whose types are compatible with the selected pipeline are displayed. Users can also add group labels to enable comparisons between groups, for example, disease vs. control. We realize that group comparisons may not be applicable to every analysis. Users can simply check a box to disable group comparisons.
 
 ![Choose samples and group comparisons screenshot](../images/choose_samples_group_comparisons.png)
 
-After users click "Add Selected Samples to Analysis" button, there will be confirmation page of what the users have chosen/entered. User then click "Run Analysis" to submit this analysis.
+After users click "Add Selected Samples to Analysis" button, there will be a confirmation page of what the users have chosen/entered. User then click "Run Analysis" to submit this analysis.
 
 ![Submit new analysis screenshot](../images/submit_analysis.png)
 
 ### View results
-On the 4th and last page, users can check status of ongoing analyses and view results of finished analyses. Each analysis in the project will be represented with a card. Cards of completed analyses have two buttons to view and download their reports. The "report" here refers to a single HTML report that the pipeline has produced for this analysis. These cards can also be expanded by clicking the "View More" button.
+On the 4th and last page, users can check status of ongoing analyses and view results of finished analyses. Each analysis in the project will be represented with a card. Cards of completed analyses have three buttons to either view or download their reports, or to delete the analysis. The "report" here refers to a single HTML/PDF report that the pipeline has produced for this analysis. These cards can also be expanded by clicking the "View More" button.
 
 ![Analysis results collapsed view screenshot](../images/view_results_collapsed.png)
 
