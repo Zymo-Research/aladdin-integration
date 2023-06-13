@@ -43,7 +43,7 @@ After confirming your samples, you will see your samples listed on the samples p
 
 ![Samples page](../images/samples_page.png)
 
-### Star new analysis
+### Start new analysis
 On the second page, users can start a new bioinformatic analysis. The section on the left is used to define metadata of this analysis such as name and description, choose a pipeline, and define input parameters for the selected pipeline in this analysis. The section on the right is used to select samples to be included in this analysis and request group comparisons.
 
 ![Start new analysis page screenshot](../images/start_new_analysis.png)
@@ -121,7 +121,7 @@ In addition to all keywords supported by JSONSchema draft 7, Aladdin recognizes 
 1. **hidden**: accepts boolean values only, default false. This is used to signal that this parameter should not appear on Aladdin UI. This is useful for parameters such as output directory, work directory that are not configurable when a pipeline is run on Aladdin. **You can also choose to delete these parameters from the pipeline schema.** However, we also recognize you may want your pipeline schema to be complete and comprehensive for running the pipeline with other tools or in other compute environments. Therefore, you can add `"hidden":true` to parameters that you don't want to appear in the UI in those cases.
 2. **advanced**: accepts boolean values only, default false. This is used to signal that this parameter should be in the advanced parameter section. When `"advanced":true` is stated, the parameter must have default value. This is useful when a parater should not be changed by most users but should still be available to more advanced users.
 
-[^2] This is different from nf-core practices, which has added a `help_text` attribute to their schema file.
+[^2]: This is different from nf-core practices, which has added a `help_text` attribute to their schema file.
 
 #### Design CSV file
 After users submit an analysis, Aladdin creates a design CSV file with the following the format:
