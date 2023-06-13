@@ -3,8 +3,8 @@ This document details the requirements of Nextflow pipelines in order for it to 
 
 ## Table of contents
 * [Table of contents](#table-of-contents)
-* [Overview of Aladdin platform](#overview-of-aladdin-platform)
-  * [Upload FASTQ](#upload-fastq)
+* [Overview of Aladdin Bioinformatics platform](#overview-of-aladdin-bioinformatics-platform)
+  * [Import data](#import-data)
   * [Choose sample type](#choose-sample-type)
   * [Start new analysis](#start-new-analysis)
     * [Choose input parameters](#choose-input-parameters)
@@ -18,13 +18,27 @@ This document details the requirements of Nextflow pipelines in order for it to 
     * [Design CSV file](#design-csv-file)
   * [Output requirements](#output-requirements)
 
-## Overview of Aladdin platform
-We will go over the main functionality and pages of Aladdin Bioinformatics platform to familiarize you with its designs so that you have a context on why some of the pipeline requirements exist and how some of the required components of the pipeline interacts with user interface (UI). While there are other functionalities on Aladdin platform such as user management, project management and educational contents, the main bioinformatics functionalities are carried out in 4 steps and 4 pages: upload data, choose sample type, start new analysis, and view results.
+## Overview of Aladdin Bioinformatics platform
+We will go over the main functionality and pages of Aladdin Bioinformatics platform to familiarize you with its designs so that you have a context on why some of the pipeline requirements exist and how some of the required components of the pipeline interacts with user interface (UI). While there are other functionalities on Aladdin platform such as user management, project management and educational contents, the main bioinformatics functionalities are carried out in 3 steps and 3 pages: import data, start new analysis, and view results.
 
-### Upload FASTQ
-Users always begin a project on Aladdin by uploading their FASTQ files on a page like this. 
+### Import data
+Users always begin a project on Aladdin by uploading their files (currently only supporting gzipped FASTQ files) on a page like this. 
 
-![Upload data page screenshot](../images/upload_data.png)
+The first step is to choose the source of your data. You can upload from your computer, or from a public URL such as those from Google Drive, Dropbox, or AWS S3. You can also import from Sequence Read Archive(SRA) database or use one of the demo samples from our database.
+
+![Choose data source](../images/upload_data_step1.png)
+
+The next step is to tell us which library type are you uploading. It is necessary for us to know the library types of your data because certain bioinformatics pipeline only works on certain library types. We use this information to check compatibility. 
+
+![Choose library type](../images/upload_data_step2.png)
+
+The last step is to choose the type of files. Right now we only support FASTQ files, but this allows to support more file types such as BAM, idat files, etc.
+
+![Choose file type](../images/upload_data_step3.png)
+
+After choosing these options, you will be directed to either choose files from your computer, or paste URLs, or past SRA accession numbers. Depending on the source of the files, you will either monitor the upload progress on the page, or be notified by email of the completion of import later. When files are uploaded/imported, they will appear as **UNCONFIRMED SAMPLES**. Aladdin will try to pair up your FASTQ files automatically. However, you can fix the automatic pairing or lack thereof by dragging and dropping the FASTQ files to correct places on this page.
+
+![Pair FASTQ files](../images/pair_fastq_files.png)
 
 The section on the left side is where users can upload their FASTQ files from their computer and monitor upload progress. Only `.fastq.gz` and `fq.gz` files are accepted. Alternatively, the user could choose to upload their FASTQ files from the internet by copy and pasting URLs to the FASTQ files. The section on the right side displays uploaded and unpaired FASTQ files. Users can pair read 1 and read 2 files, and change short names of FASTQ file pairs in this section. Automatic pairing of FASTQ files is carried out for recognized file naming patterns, namely [Illumina FASTQ naming convention](https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/NamingConvention_FASTQ-files-swBS.htm) or the simple pattern of "name_R1.fastq.gz; name_R2.fastq.gz". Users can drag and drop R1/R2 files to correct file pairings. After uploading and pairing FASTQ files, users click "Confirm Pairing" and will be asked to confirm the FASTQ file pairings.
 
